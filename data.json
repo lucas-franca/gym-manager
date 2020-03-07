@@ -1,15 +1,15 @@
 {
   "members": [
     {
+      "id": 1,
       "avatar_url": "https://www.techtalk.gfi.com/wp-content/uploads/2014/06/nerd-buff.jpg",
       "name": "Aluno um",
-      "email": "aluno@aluno.com.br",
+      "email": "aluno@gym-manager.com.br",
       "birth": 946684800000,
       "gender": "M",
       "blood": "O0",
       "weight": "88",
-      "height": "170",
-      "id": 1
+      "height": "170"
     }
   ],
   "instructors": [
