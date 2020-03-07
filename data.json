@@ -1,0 +1,23 @@
+{
+  "members": [],
+  "instructors": [
+    {
+      "id": 1,
+      "avatar_url": "https://i.pinimg.com/originals/5f/09/e3/5f09e3307f24efaa5bf569205b2da7c7.jpg",
+      "name": "Arnold",
+      "birth": -707702400000,
+      "gender": "M",
+      "services": "Bodybuilder",
+      "created_at": 1581888510553
+    },
+    {
+      "id": 2,
+      "avatar_url": "https://i.pinimg.com/236x/c8/6b/b7/c86bb75080abb491caccc4cbd765fc0d--facebook.jpg",
+      "name": "Sardinha",
+      "birth": -2208988800000,
+      "gender": "M",
+      "services": "crossfit,dança",
+      "created_at": 1582846669299
+    }
+  ]
+}
