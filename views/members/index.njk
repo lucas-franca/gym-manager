@@ -3,6 +3,9 @@
 
 {% block content %}
   <div class="card table-container">
+
+  <a id="novo" href="/members/create">Novo</a>
+
     <table width="100%">
       <thead>
         <tr>
@@ -12,19 +15,17 @@
         </tr>
       </thead>
       <tbody>
-      {% for instructor in instructors %}
+      {% for member in members %}
         <tr>
           <td>
-            <span style="background-image: url({{instructor.avatar_url}}}})"></span>
+            <span class="img" style="background-image: url({{member.avatar_url}})"></span>
           
-            {{instructor.name}}
+            {{member.name}}
           </td>
           <td>{{instructor.services}}</td>
-          <td><a href="/instructors/{{instructor.id}}">ver</a></td>
-          <form id="form-delete" action="/instructors?_method=DELETE" method="POST">
-            <input type="hidden" name="id" value="{{instructor.id}}"/>
-            <button type="submit">Deletar</button>
-        </form>
+          <td>
+            <a href="/members/{{member.id}}">ver</a>
+          </td>
         </tr>
       {% endfor %}
       </tbody>

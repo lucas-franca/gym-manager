@@ -17,17 +17,19 @@ exports.post = function(req, res){
     }
   }
 
-  let {avatar_url, birth, name, gender} = req.body;
+  birth = Date.parse(req.body.birth);
+  
+  let id = 1;
+  const lastMember = data.members[data.members.length - 1];
 
-  birth = Date.parse(birth);
-  const id = Number(data.members.length + 1);
+  if(lastMember){
+    id = lastMember.id + 1;
+  }
 
   data.members.push({
+    ... req.body,
     id,
-    avatar_url,
-    name,
-    birth,
-    gender,
+    birth
   });
 
   fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err){
@@ -46,7 +48,7 @@ exports.show = function(req,res){
     return member.id == id;
   })
 
-  if(!foundMember) return res.send("Aluno não encontrado");
+  if(!foundMember) return res.send("Membro não encontrado");
 
   const member = {
     ... foundMember,
@@ -68,7 +70,7 @@ exports.edit = function(req, res){
     return member.id == id;
   })
 
-  if(!foundMember) return res.send("Aluno não encontrado");
+  if(!foundMember) return res.send("Membro não encontrado");
 
   const member = {
     ...foundMember,
@@ -90,7 +92,7 @@ exports.put = function(req, res){
     }
   })
 
-  if(!foundMember) return res.send("Instrutor não encontrado");
+  if(!foundMember) return res.send("membro não encontrado");
 
   const member = {
     ... foundMember,
