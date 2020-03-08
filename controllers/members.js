@@ -1,13 +1,15 @@
 const fs = require("fs");
 const data = require("../data.json");
-const Intl = require("intl");
-const { age, date } = require("../utils");
+const { date } = require("../utils");
 
 exports.index = function(req, res){
   return res.render("members/index", { members: data.members })
 }
 
-// create
+exports.create = function(req,res){
+  return res.render("members/create")
+}
+
 exports.post = function(req, res){
   const keys = Object.keys(req.body)
 
@@ -40,7 +42,6 @@ exports.post = function(req, res){
 
 }
 
-//show
 exports.show = function(req,res){
   const { id } = req.params;
 
@@ -52,17 +53,12 @@ exports.show = function(req,res){
 
   const member = {
     ... foundMember,
-    age: age(foundMember.birth),
+    birth: date(foundMember.birth).birthDay,
   }
 
   return res.render("members/show", { member });
 }
 
-exports.create = function(req,res){
-  return res.render("members/create")
-}
-
-// edit
 exports.edit = function(req, res){
   const { id } = req.params;
 
@@ -80,7 +76,6 @@ exports.edit = function(req, res){
   return res.render('members/edit', {member})
 }
 
-// put
 exports.put = function(req, res){
   const { id } = req.body;
   let index = 0;
@@ -111,7 +106,6 @@ exports.put = function(req, res){
 
 }
 
-// delete
 exports.delete = function(req, res){
   const{ id } = req.body;
 
